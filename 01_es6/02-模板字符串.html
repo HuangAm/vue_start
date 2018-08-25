@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <ul>
+        
+    </ul>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        // es5 语法
+        // let name = 'wuyongqiang'
+        // let age = 20;
+        // var desc = name + '是个帅哥，年龄'+age+'，肉少'
+        // console.log(desc)
+        
+        // es6模板字符串 类似%s
+        let name = 'wuyongqiang'
+        let age = 20;
+        let desc = `${name}是个帅哥，年龄${age}，肉少`;
+        console.log(desc)
+        
+        let imgSrc = "http://es6.ruanyifeng.com/images/cover-3rd.jpg"
+        $(function(){
+            $('ul').append(`<li>
+            <a href="javascript:void(0);">
+                <img src=${imgSrc} alt="">
+            </a>
+            </li>`)
+        })
+    </script>
+</body>
+</html>    

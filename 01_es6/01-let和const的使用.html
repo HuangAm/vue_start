@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+</head>
+<body>
+    <!-- <script type="text/javascript">
+        // es5中声明变量使用的var
+        console.log(a);
+
+        // var声明会有变量提升的作用，又声明又定义
+        var a = 10;
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        // var带来的变量提升的问题
+        // 浏览器在解析var关键字时会将var b提升到浏览器的最上端进行声明
+        console.log(b)
+        b = 10;
+        var b; 
+    </script> -->
+    
+    <!-- <script>
+        // var带来的作用域的问题
+        // 因为变量提升，导致var声明的变量属于全局作用域
+        console.log(a)
+        {
+            var a = 20;
+            var a = 30; // var声明变量存在覆盖现象
+        }
+        console.log(a);
+    </script> -->
+
+    <!-- <script>
+        // for(var i=0;i<20;i++){
+        //     a[i] = function(){
+        //         console.log(i)
+        //     }
+        // }
+        // a[10](); // 结果为a[20]()的结果
+
+        for(let i=0;i<20;i++){
+            a[i] = function(){
+                console.log(i)
+            }
+        }
+        a[10](); // 结果为a[10]()的结果
+
+        {
+            let a = 30;
+            let a = 40;  // 会报错一个已经声明过的错
+        }
+    </script> -->
+
+
+
+    <script>
+    // const声明常量
+    const pai = 3.1415926
+    pai = 10  // 会报错，常量一旦声明不可修改
+    </script>
+</body>
+</html>

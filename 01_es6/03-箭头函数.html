@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+        /*
+    // 普通函数
+        function add(a,b){
+            return a+b;
+        }
+        alert(add(1,2));
+        */
+
+    // 函数对象
+        // var add = function(a,b){
+        //     return a+b
+        // };
+        // alert(add(3,4))
+
+    // es6箭头函数，匿名函数
+    // ()装参数的括号
+    // =>可以做function关键字去记
+    // {}中炜函数的执行体
+        // var add = (a,b)=>{
+        //     return a+b;
+        // };
+        // alert(add(3,4))
+
+    // 对比下面两个例子
+        // var person = {
+        //     name:"wuyongqiang",
+        //     age:20,
+        //     fav:function(){
+        //         console.log("sb")
+        //         // this指的是当前的对象
+        //         console.log(this.age)
+        //     }
+        // }
+        // person.fav();
+        // var person = {
+        //     name:"wuyongqiang",
+        //     age:20,
+        //     fav:()=>{
+        //         console.log("sb")
+        //         // this的指向发生了改变，指向了定义person的父级对象
+        //         console.log(this.age)
+        //     }
+        // }
+        // person.fav();
+        
+    // 传参
+        // var person = {
+        //     name:"wuyongqiang",
+        //     age:20,
+        //     fav:function(co){
+        //         console.log(arguments[0])  // arguments代表实参
+        //         // this指的是当前的对象
+        //         console.log(this.age)
+        //     }
+        // }
+        // person.fav("积极")
+        // var person = {
+        //     name:"wuyongqiang",
+        //     age:20,
+        //     fav:(co)=>{
+        //         console.log(arguments[0])  // 报错
+        //         // this指的是当前的对象
+        //         console.log(this.age)
+        //     }
+        // }
+        // person.fav("积极")
+        
+
+    </script>
+</body>
+</html>

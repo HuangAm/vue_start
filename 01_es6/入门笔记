@@ -1,0 +1,126 @@
+学前了解：
+    1.服务器语言nodejs，他的express相当于django，npm相当于pip
+    2.npm有点加载包可以异步，方便管理，有助上线
+    3.ESMAScript6语法：http://es6.ruanyifeng.com/
+        主流浏览器有部分的es6的语法不识别，用babel将es6语法转为es5的语法
+
+
+碎知识：
+    用var进行变量声明带来的问题
+        1.变量提升：当浏览器在解析script脚本是碰到var后会有变量提升
+        2.作用域的问题，都是全局的
+    在前端中碰到main.js或index.js一般都是应用程序的入口文件
+
+ESMAScript6语法
+    1.声明变量 let和const
+        let:(解决变量提升))
+            let声明的变量只在局部作用域下有效
+            let声明的变量不能被重复声明
+        const:
+            const声明常量，一旦声明不可修改
+            const声明属于局部作用
+    2.模板字符串
+        首先一定使用反引号
+        使用${变量名}作为占位符，进行格式化输出
+    3.函数的书写
+        es7箭头函数的使用：
+            function(){} ==== ()=>{}
+            使用箭头函数this的指向发生了改变,指向了定义该函数的父级对象
+            箭头函数中arguments不能使用
+
+    4.对象的创建
+        对象的单体模式：fav(){}，解决了使用箭头函数造成的this指向问题  
+        等价于
+        function fav(){}
+        等价于
+        var fav = function(){}
+
+    5.es6中类的概念(基于对象单体模式)
+        class Person{
+            // constructor函数相当于init函数初始化就执行
+            constructor(name,age){ // 一定要记得传参
+                this.name = name;
+                this.age = age;
+            }  // 这里千万不要逗号
+            showName(){
+                alert(this.name)
+            }
+        }
+        var p2 = new Person('张三',20)
+        p2.showName();
+
+vue初步认识
+    渐进式的JavaScript框架：简化后的框架，我们通过简单的操作就可以完成功能
+前端框架和库的区别
+    功能上的不同：
+        jQuery库：包含DOM(操作DOM)+请求，就是一块功能。
+        art-template库：模板引擎渲染，高性能的渲染DOM
+        框架：大而全的概念，简易的DOM体验+请求处理+模板引擎
+        例如：在KFC的世界中,库就是一个小套餐，框架就是全家桶
+    代码上的不同：
+        一般使用库的代码，是调用某个函数或者直接使用抛出来的对象，我们自己处理库中的代码。
+        一般使用框架，其框架本身提供的好的成套的工具帮我们运行我们编写好的代码
+    框架的使用：
+        初始化自身的一些行为
+        执行你所编写的代码
+        释放一些资源
+    
+nodejs简单认识
+    小型服务器语言就跟python一样，会自带一个包管理器叫npm
+    使用npm：
+        初始化：npm init 按提示完成配置最后会生成一个package.json文件
+        搜包：npm包官网 https://npmjs.com
+        下载：npm install vue --save
+             --save将包下载到当前的项目中
+             在package.json文件中会多一个依赖(dependencies中会多一项"vue":"^2.5.6",^表示向后兼容)
+             还会在该目录下生成一个node_modules的文件夹
+        npm install vue@1 --save  下载1版本的最高版本
+        npm install vue@1.0.1 --save  下载指定版本
+
+vue起步
+    引包
+    创建实例化对象
+        el必须有
+    {{}}模板语法
+        可以插入变量，可以做运算，
+        函数的调用
+        三目运算(不能有if esle)
+    指令系统
+        指令操作均为声明式操作
+        在vue中提供了一套为(数据驱动视图)更为方便的操作，这些操作称为指令系统，以v-xxx所表示
+        如angular中以ng-xxx开头的也叫指令
+        指令中封装了一些DOM行为，结合属性作为一个暗号，暗号有对应的值，根据不同的值，框架会进行相应的DOM操作的绑定
+        
+        v-text等价于{{}} 实现原理:innerText
+        v-html 实现原理:innerHTML
+
+        表单控件的value
+        v-if和v-show的区别：
+            v-if为false时直接注释掉该块，或叫销毁掉
+            v-show为false时只是让改块display=None
+            详细区别看官方文档
+        v-for
+            <ul>
+                <li v-for='(item,index) in menuList'>
+                    <p>{{index}}--{{item.id}}</p>
+                    <p>{{index}}--{{item.name}}</p>
+                </li>
+            </ul>
+            <ul>
+                <li v-for='item in menuList'>
+                    <p>{{item.id}}</p>
+                    <p>{{item.name}}</p>
+                </li>
+            </ul>
+            <ul>
+                <li v-for='(value,key) in obj'>
+                    <p>{{value}}--{{key}}</p>
+                </li>
+            </ul>
+        v-bind:属性名='{}||[]||变量名||常量'
+            进行属性绑定，所有的属性都可以进行绑定，绑定只要使用了v-bind后面的字符处你一定是数据属性中的值
+        v-on
+            1.时间源 2.时件 3.事件驱动程序
+            vue中使用v-on:click对当前DOM绑定click事件
+            注意：所有的原生js的事件使用v-on都可以绑定
+        v-if v-on结合实现页面中的DOM的创建和销毁

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .wrap{
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .active{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="wrap"v-bind:class="{active:isYellow}"></div>
+        <a v-bind:href="href">xxx</a>
+        <h4>{{msg}}</h4>
+        <h2 v-text='msg'></h2>
+        <p v-html='msg2'></p>
+        <div class='box' v-if='isShow'></div>
+        <div class='box' v-show='isShow'></div>
+        
+        <div v-if='Math.random() > 0.5'>
+            此值大于0.5
+        </div>
+        <div v-else>
+            此值小于0.5
+        </div>
+        <ul>
+            <li v-for='item in menuList'>
+                <p>{{item.id}}</p>
+                <p>{{item.name}}</p>
+                <p>{{item.high}}</p>
+                <p>{{item.long}}</p>
+            </li>
+        </ul>
+        <ul>
+            <li v-for='(item,index) in menuList'>
+                <p>{{index}}--{{item.id}}</p>
+                <p>{{index}}--{{item.name}}</p>
+                <p>{{index}}--{{item.high}}</p>
+                <p>{{index}}--{{item.long}}</p>
+            </li>
+        </ul>
+        <ul>
+            <li v-for='(value,key) in obj'>
+                <p>{{value}}--{{key}}</p>
+            </li>
+        </ul>
+        
+    </div>
+</body>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#app",
+            template:``,
+            data:{
+                // 数据属性
+                msg:"hello 指令系统",
+                msg2:"<a href='#app'>数据属性</a>",
+                isShow:true,
+                menuList:[
+                    {id:1,name:'张三',high:'180',long:'18'},
+                    {id:2,name:'李四',high:'190',long:'19'},
+                    {id:3,name:'王五',high:'200',long:'20'},
+                ],
+                obj:{
+                    name:'wuyongqiang',
+                    age:'20',
+                    high:'183',
+                    long:'180'
+                },
+                isYellow:false,
+                href:'https://www.baidu.com'
+            },
+        })
+    </script>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <script>
+    // 字面量方式创建对象
+        // var person = {
+        //     name:"wuyongqiang",
+        //     age:20,
+        //     fav:function(){
+        //         console.log(this.age)
+        //     }
+        // }
+        // person.fav()
+    // es6中的对象的单体模式
+        var person = {
+            name:"wuyongqiang",
+            age:20,
+            fav(){
+                console.log(this.age)
+                console.log(arguments)
+            }
+        }
+        person.fav()
+
+    
+    </script>
+</body>
+</html>
